@@ -45,7 +45,7 @@ namespace ranges
                 static sized_iterator_range<iterator_t<T>, sentinel_t<T>>
                 from_container(T & t, concepts::SizedRange*, concepts::Sentinel*)
                 {
-                    return {begin(t), end(t), size(t)};
+                    return {begin(t), end(t), typename std::make_unsigned<decltype (size(t))>::type(size(t)) };
                 }
 
                 template<typename T>
